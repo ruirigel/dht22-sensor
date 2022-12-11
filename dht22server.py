@@ -19,8 +19,23 @@ class Server(BaseHTTPRequestHandler):
               self.send_response(200)
               self.send_header("Content-type", "text/plain")
               self.end_headers()
-             # self.wfile.write(bytes("Date,Time,Temperature,Humidity\n", "utf-8"))
+            # uncomment for add columns
+            # self.wfile.write(bytes("Date,Time,Temperature,Humidity\n", "utf-8"))
               self.wfile.write(bytes("{0},{1},{2:0.1f}*C,{3:0.1f}%".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity), "utf-8"))
+
+           # image/x-icon mimetype to avoid browser error
+           elif self.path == "/favicon.ico":
+                   iconame = self.path
+                   iconame = iconame[1:]
+                   iconfile = open(iconame, 'rb').read()
+                   statinfo = os.stat(iconame)
+                   iconsize = statinfo.st_size
+                   self.send_response(200)
+                   self.send_header("Content-type", "image/x-icon")
+                   self.send_header("Content-length", iconsize)
+                   self.end_headers()
+                   self.wfile.write(iconfile)
+
            # Specific name to show plot
            elif self.path == "/plot.png":
                    imgname = self.path
@@ -33,7 +48,6 @@ class Server(BaseHTTPRequestHandler):
                    self.send_header("Content-length", imgsize)
                    self.end_headers()
                    self.wfile.write(imgfile)
-
 
 if __name__ == "__main__":
     webServer = HTTPServer((hostName, serverPort), Server)
