@@ -2,6 +2,5 @@
 dht22 sensor, raspberry pi, distribution derived from Debian (raspbian), $gnuplot and $python3
 
 # Tasks to be run by cron
-@reboot python3 /home/pi/dht22_server/dht22server.py
-*/30 * * * * python3 /home/pi/dht22_server/dht22logger.py
-
+@reboot cd /home/pi/dht22_server/ && python3 dht22server.py >> output.log
+*/30 * * * * cd /home/pi/dht22_server/ && python3 dht22logger.py >> output.log
