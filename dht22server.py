@@ -21,9 +21,9 @@ class Server(BaseHTTPRequestHandler):
               self.end_headers()
             # uncomment for add columns
             # self.wfile.write(bytes("Date,Time,Temperature,Humidity\n", "utf-8"))
-              self.wfile.write(bytes("{0},{1},{2:0.1f}*C,{3:0.1f}%".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity), "utf-8"))
+              self.wfile.write(bytes("{0},{1},{2:0.1f}C,{3:0.1f}%".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity), "utf-8"))
 
-           # image/x-icon mimetype to avoid browser error
+           # image/x-icon mimetype to avoid browser erros 
            elif self.path == "/favicon.ico":
                    iconame = self.path
                    iconame = iconame[1:]

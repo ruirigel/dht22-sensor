@@ -4,19 +4,33 @@ import os
 import time
 import Adafruit_DHT
 import subprocess
+import numpy as np
 
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
-
-f = open('/home/pi/dht22_server/plot.txt', 'a+')
-if os.stat('/home/pi/dht22_server/plot.txt').st_size == 0:
-            print("Logging.")
-
 humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
-if humidity is not None and temperature is not None:
-    f.write('{0},{1},{2:0.1f},{3:0.1f}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity))
-    subprocess.run(["gnuplot", "/home/pi/dht22_server/plot.conf"])
+def dewpoint_approximation(T,RH):
+    Td = (b * gamma(T,RH)) / (a - gamma(T,RH))
+    return Td
 
-else:
-    print("Failed to retrieve data from humidity sensor")
+def gamma(T,RH):
+    g = (a * T / (b + T)) + np.log(RH/100.0)
+    return g
+
+f = open('plot.txt', 'a+')
+
+if humidity is not None and temperature is not None:
+
+   a = 17.271
+   b = 237.7
+
+   T = temperature
+   RH = humidity
+
+   Td = dewpoint_approximation(T,RH)
+
+   f.write('{0},{1},{2:0.1f},{3:0.1f},{4}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity, round(Td,1)))
+
+   subprocess.run(["gnuplot", "plot.conf"])
+
