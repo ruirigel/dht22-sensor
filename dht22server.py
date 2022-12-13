@@ -4,6 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import os
 import Adafruit_DHT
+from dht22calcs import dewpoint
 
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
@@ -16,14 +17,15 @@ class Server(BaseHTTPRequestHandler):
            # Specific name to show values
            if self.path == '/dht22values':
               humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+              t = round(temperature,1)
+              rh = round(humidity,1)
               self.send_response(200)
               self.send_header("Content-type", "text/plain")
               self.end_headers()
             # uncomment for add columns
-            # self.wfile.write(bytes("Date,Time,Temperature,Humidity\n", "utf-8"))
-              self.wfile.write(bytes("{0},{1},{2:0.1f}C,{3:0.1f}%".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity), "utf-8"))
+              self.wfile.write(bytes("{0},{1},{2:0.1f},{3:0.1f},{4}".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity, round(dewpoint(t,rh),1)), "utf-8"))
 
-           # image/x-icon mimetype to avoid browser erros 
+           # image/x-icon mimetype to avoid browser error
            elif self.path == "/favicon.ico":
                    iconame = self.path
                    iconame = iconame[1:]
