@@ -42,6 +42,9 @@ cd dht22-sensor/
 ```
 4. Run setup.sh to install the relevant software.
  * Note:  You may be prompted for a password for sudo.
+ ```
+chmod +x setup.sh
+```
 ```
 ./setup.sh
 ```
