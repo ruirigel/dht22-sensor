@@ -56,8 +56,8 @@ crontab -e
 Insert these two lines. First line starts the service at boot up, the second line every 30 minutes consults the sensor. 
 Change the USER in lines and (ctrl+x) to save.
 ```
-@reboot cd /home/<USER>/dht22_server/ && python3 dht22server.py >> output.log
-*/30 * * * * cd /home/<USER>/dht22_server/ && python3 dht22logger.py >> output.log
+@reboot cd /home/<USER>/dht22_server/ && python3 dht22server.py
+*/30 * * * * cd /home/<USER>/dht22_server/ && python3 dht22logger.py
 ```
 2. Start dht22-sensor server.
 ```
