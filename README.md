@@ -23,7 +23,8 @@ Pin 4 is GND (Ground)
 ### Raspberry Pi DHT22 Circuit
 ```
 Place a 10k resistor between Pin 1 and Pin 2 of the DHT22
-Wire Pin 1 of the DHT22 to Physical Pin 1 (3v3) on the Pi (for the use of 3v the wire must be equal or less than one meter)
+Wire Pin 1 of the DHT22 to Physical Pin 1 (3v3) on the Pi 
+(for the use of 3v the wire must be equal or less than one meter)
 Wire Pin 2 of the DHT22 to Physical Pin 7 (GPIO4) on the Pi
 Wire Pin 4 of the DHT22 to Physical Pin 6 (GND) on the Pi
 ```
