@@ -5,6 +5,7 @@ import time
 import os
 import Adafruit_DHT
 from dht22calcs import dewpoint
+import sys
 
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
@@ -22,7 +23,6 @@ class Server(BaseHTTPRequestHandler):
               self.send_response(200)
               self.send_header("Content-type", "text/plain")
               self.end_headers()
-            # uncomment for add columns
               self.wfile.write(bytes("{0},{1},{2:0.1f},{3:0.1f},{4}".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity, round(dewpoint(t,rh),1)), "utf-8"))
 
            # image/x-icon mimetype to avoid browser error
@@ -55,6 +55,9 @@ if __name__ == "__main__":
     webServer = HTTPServer((hostName, serverPort), Server)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
+    buffer = 1
+    sys.stderr = open('dht22server_log.txt', 'w', buffer)
+    
     try:
         webServer.serve_forever()
     except KeyboardInterrupt:
