@@ -1,8 +1,14 @@
 #!/bin/bash
 
+echo "###############################################"
+echo "### Welcome to the dht22-sensor setup       ###"
+echo "###############################################"
+echo
+echo
 echo
 echo "Setup proceeding in 10 seconds... (control-c to cancel)"
 echo
+
 sleep 10
 
 sudo true
@@ -12,10 +18,9 @@ sudo true
         build-essential \
         python3 \
         python3-dev \
-        python3-pip
-        gnuplot
-
-    sudo python3 -m yes | pip install --upgrade pip setuptools wheel
+        python3-pip \
+        gnuplot-x11
+    sudo yes | python3 -m pip install --upgrade pip setuptools wheel
     sudo yes | pip3 install --install-option="--force-pi" Adafruit_DHT
 
 echo
