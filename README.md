@@ -3,8 +3,12 @@ Created out of the need to monitor atmospheric conditions within a astronomical 
 The project dht22-sensor is small service to show atmospheric conditions by sensor dht22
 
 ### Features
-* By http protocol we can see the values in CSV format or in graphic.
-* Dew Point calculations.
+* By http protocol we can see the values in CSV format or in generated graphic.
+* Temperature
+* R.Humidity
+* Dew Point
+* Heat index 
+* Weather history
 
 ### Requirements
 * Raspberry Pi with Raspbian OS
