@@ -54,7 +54,7 @@ chmod +x setup.sh
 ```
 crontab -e
 ```
-Insert these two lines. First line starts the service at boot up, the second line every 30 minutes consults the sensor
+Insert these lines. First line starts the service at boot up, the second line every 30 minutes consults the sensor
 and third line copies the graph of the week every Sunday.
 Change the USER in lines and (ctrl+x) to save.
 ```
