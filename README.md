@@ -54,18 +54,6 @@ chmod +x setup.sh
 ./setup.sh
 ```
 ### Manual operation
-1. Edit crontab to insert tasks to be run by cron.
-```
-crontab -e
-```
-Insert these lines. First line starts the service at boot up, the second line every 30 minutes consults the sensor
-and third line copies the graph of the week every Sunday.
-Change the USER in lines and (ctrl+x) to save.
-```
-@reboot cd /home/<USER>/dht22_server/ && python3 dht22server.py
-*/30 * * * * cd /home/<USER>/dht22_server/ && python3 dht22logger.py
-59 23 * * 0 cd /home/<USER>/dht22_server/ && cp plot.png weather_history/plot_"$(date '+%m%d%Y').png"
-```
 2. Start dht22-sensor server.
 ```
 sudo reboot now
