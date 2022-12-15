@@ -1,1 +1,2 @@
-
+xx.xx.xxx.xx - - [15/Dec/2022 19:14:10] "GET /dht22values HTTP/1.1" 200 -
+xx.xx.xxx.xx - - [15/Dec/2022 19:14:10] "GET /favicon.ico HTTP/1.1" 200 -
