@@ -22,7 +22,7 @@ sudo true
 (crontab -l ; echo "@reboot cd /home/$USER/dht22_server/ && python3 dht22server.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "*/30 * * * * cd /home/$USER/dht22_server/ && python3 dht22logger.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "59 23 * * 0 cd /home/$USER/dht22_server/ && cp plot.png weather_history/plot_"$(date '+%m%d%Y').png"") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
-(crontab -l ; echo "15 1 * * * kill -9 $(pgrep -f dht22server) && cd /home/$USER/dht22_server/ && python3 dht22logger.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
+(crontab -l ; echo "15 1 * * * kill -9 $(pgrep -f dht22server) && cd /home/$USER/dht22_server/ && python3 dht22server.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 
 echo
 echo
