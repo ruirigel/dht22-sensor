@@ -41,7 +41,14 @@ class Server(BaseHTTPRequestHandler):
                    self.send_header("Content-type", "image/png")
                    self.send_header("Content-length", imgsize)
                    self.end_headers()
-                   self.wfile.write(imgfile)
+                   self.wfile.write(imgfile)           
+                    
+           else:
+                   self.send_response(442)
+                   self.end_headers()
+
+                    
+                   
 
 if __name__ == "__main__":
     webServer = HTTPServer((hostName, serverPort), Server)
