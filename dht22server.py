@@ -56,7 +56,7 @@ if __name__ == "__main__":
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     buffer = 1
-    sys.stderr = open('dht22server_log.txt', 'w', buffer)
+    sys.stderr = open('dht22server_log.txt', '+a', buffer)
 
     try:
         webServer.serve_forever()
