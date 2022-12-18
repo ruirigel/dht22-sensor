@@ -5,12 +5,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import os
-import Adafruit_DHT
-from dht22calcs import dewpoint, heatindex
+from dht22sensor import temperature, humidity, dewpoint, heatindex
 import sys
-
-DHT_SENSOR = Adafruit_DHT.DHT22
-DHT_PIN = 4
 
 hostName = "0.0.0.0"
 serverPort = 8000
@@ -18,14 +14,10 @@ serverPort = 8000
 class Server(BaseHTTPRequestHandler):
     def do_GET(self):
            if self.path == '/dht22values':
-              humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-              t = round(temperature,1)
-              rh = round(humidity,1)
-              hi = round(heatindex(t,rh),1)
               self.send_response(200)
               self.send_header("Content-type", "text/plain")
               self.end_headers()
-              self.wfile.write(bytes("{0},{1},{2:0.1f},{3:0.1f},{4},{5}".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), temperature, humidity, round(dewpoint(t,rh),1), round(heatindex(t,rh),1)), "utf-8"))
+              self.wfile.write(bytes("{0},{1},{2:0.1f},{3:0.1f},{4},{5}".format(time.strftime('%m/%d/%y'), time.strftime('%H:%M'), round(temperature(),1), round(humidity(),1), round(dewpoint(),1), round(heatindex(),1),), "utf-8"))
 
            elif self.path == "/favicon.ico":
                    iconame = self.path
