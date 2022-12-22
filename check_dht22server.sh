@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "`hostname -I | cut -f1 -d ' '` - - [`date "+%d/%b/%Y %H:%M:%S"`] Check." >> dht22server_log.txt
+echo "`hostname -I | cut -f1 -d ' '` - - [`date "+%d/%b/%Y %H:%M:%S"`] Check server." >> dht22server_log.txt
 
 if ! [ $(curl -LI `hostname -I | cut -f1 -d ' '`:8000 -o /dev/null -w '%{http_code}\n' -s) == "501" ]; then
 	if pgrep -x "dht22server.py" >/dev/null; then
