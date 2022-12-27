@@ -3,6 +3,7 @@ Created out of the need to monitor atmospheric conditions within a astronomical 
 The project dht22-sensor is small service to show atmospheric conditions by sensor dht22
 
 ![](./plot.png)
+![](./csv.png)
 
 ### Features
 * By http protocol we can see the values in CSV format or in generated graphic.
