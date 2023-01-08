@@ -1,3 +1,6 @@
+The project is constantly being updated until the first realise is created.
+thank you.
+
 # dht22-sensor
 Created out of the need to monitor atmospheric conditions within a astronomical observatory.
 The project dht22-sensor is small service to show atmospheric conditions by sensor dht22
