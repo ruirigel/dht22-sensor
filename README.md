@@ -66,7 +66,7 @@ sudo reboot now
 ```
 3. Open the addresses in your browser.
 ```
-http://localhost:8000/dhtvalues
+http://localhost:8000/dht22values
 http://localhost:8000/plot.png
 ```
 Congratulations if you seeing this similar result: https://github.com/ruirigel/dht22-sensor/blob/main/plot.png
