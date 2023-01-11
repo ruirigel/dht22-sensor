@@ -43,12 +43,12 @@ def server_up(address:str,port:int):
 
 address = get_default_gateway_ip()
 port = 8000
-
+username = get_username()
 status = server_up(address, port)
 
 if not status:
     print(f'{address}:{port} is down!')
     process_name = 'dht22server.py'
     kill_process_by_name(process_name)
-    script_path = '/home/{get_username()}/dht22_server/dht22server.py'
+    script_path = f'/home/{username}/dht22_server/dht22server.py'
     run_script(script_path)
