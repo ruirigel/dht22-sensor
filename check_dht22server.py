@@ -14,7 +14,7 @@ def get_username():
     return username
 
 def run_script(script_path:str):
-    subprocess.Popen(["python", script_path])
+    subprocess.Popen(["python3", script_path])
 
 def kill_process_by_name(process_name:str):
     for process in psutil.process_iter():
