@@ -50,5 +50,5 @@ if not status:
     print(f'{address}:{port} is down!')
     process_name = 'dht22server.py'
     kill_process_by_name(process_name)
-    script_path = '/home/{get_username()}/dhtserver/dht22server.py'
+    script_path = '/home/{get_username()}/dht22_server/dht22server.py'
     run_script(script_path)
