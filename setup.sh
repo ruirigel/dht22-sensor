@@ -22,14 +22,14 @@ sudo true
 (crontab -l ; echo "@reboot cd /home/$USER/dht22_server/ && python3 dht22server.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "*/30 * * * * cd /home/$USER/dht22_server/ && python3 dht22logger.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "59 23 * * 0 cd /home/$USER/dht22_server/ && ./rotate_weather.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
-(crontab -l ; echo "*/5 * * * * cd /home/$USER/dht22_server/ && python3 check_dht22server.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
+(crontab -l ; echo "*/5 * * * * cd /home/$USER/dht22_server/ && ./check_dht22server.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "15 1 1 * * cd /home/$USER/dht22_server/ && ./rotate_logs.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "15 1 1 * * cd /home/$USER/dht22_server/ && ./rotate_plot.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 
-chmod +x rotate_weather.sh rotate_plot.sh rotate_logs.sh
+chmod +x check_dht22server.sh rotate_weather.sh rotate_plot.sh rotate_logs.sh
 
 echo
 echo
 echo "The setup has finished the procedure."
 echo
-echo "Enjoy!
+echo "Enjoy!"
