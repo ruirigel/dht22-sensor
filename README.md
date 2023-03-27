@@ -60,11 +60,11 @@ chmod +x setup.sh
 ./setup.sh
 ```
 ### Manual operation
-2. Start dht22-sensor server.
+1. Start dht22-sensor server.
 ```
 sudo reboot now
 ```
-3. Open the addresses in your browser.
+2. After reboot open the addresses in your browser.
 ```
 http://localhost:8000/dht22values
 http://localhost:8000/plot.png
