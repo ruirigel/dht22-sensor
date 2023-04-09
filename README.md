@@ -37,10 +37,11 @@ Wire Pin 1 of the DHT22 to Physical Pin 1 (3v3) on the Pi
 (for the use of 3v the wire must be equal or less than one meter)
 Wire Pin 2 of the DHT22 to Physical Pin 7 (GPIO4) on the Pi
 Wire Pin 4 of the DHT22 to Physical Pin 6 (GND) on the Pi
-
+```
 
 ![](./IMG_20230409_142613_194~2.jpg)
-```
+
+
 ## Installation of dht22-sensor project
 1. Install git.
 ```
