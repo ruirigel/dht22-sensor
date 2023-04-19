@@ -20,7 +20,7 @@ sudo true
     sudo yes | pip3 install --install-option="--force-pi" Adafruit_DHT
 
 (crontab -l ; echo "@reboot cd /home/$USER/dht22_server/ && python3 dht22server.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
-(crontab -l ; echo "*/30 * * * * cd /home/$USER/dht22_server/ && python3 dht22logger.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
+(crontab -l ; echo "*/15 * * * * cd /home/$USER/dht22_server/ && python3 dht22logger.py") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "59 23 * * 0 cd /home/$USER/dht22_server/ && ./rotate_weather.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "*/5 * * * * cd /home/$USER/dht22_server/ && ./check_dht22server.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
 (crontab -l ; echo "15 1 1 * * cd /home/$USER/dht22_server/ && ./rotate_logs.sh") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
