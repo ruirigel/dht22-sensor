@@ -2,10 +2,6 @@
 
 # 20230327 Rui Rigel
 
-if pgrep -f "check_dht22_server.sh" > /dev/null ; then
-        pkill -f check_dht22_server.sh
-fi
-
 code=$(curl --write-out %{http_code} --silent --connect-timeout 10 --output /dev/null localhost:8000/plot.png)
 
 if [[ "$code" -ne 200 ]] ; then
