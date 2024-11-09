@@ -74,3 +74,13 @@ http://localhost:8000/dht22values
 http://localhost:8000/plot.png
 ```
 Congratulations if you seeing this similar result: https://github.com/ruirigel/dht22-sensor/blob/main/plot.png
+
+
+### Updates
+```
+cd dht22-sensor
+```
+```
+git pull origin main
+```
+The git pull command will download the changes and automatically merge them into your local copy. This is useful for keeping the code updated with the latest changes made to the remote repository.
